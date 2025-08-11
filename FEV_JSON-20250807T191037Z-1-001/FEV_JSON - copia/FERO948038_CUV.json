@@ -1,0 +1,114 @@
+{
+  "ResultState": true,
+  "ProcesoId": 15304,
+  "NumFactura": "FERO948038",
+  "CodigoUnicoValidacion": "a27a8eede2a985f3bda98163d161ff4c6073b9737a0d59a58153cf20037c94d5124483d4bec5ad900cb8f98d3955e5e2",
+  "FechaRadicacion": "2025-08-04T20:23:40.149Z",
+  "RutaArchivos": null,
+  "ResultadosValidacion": [
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVC019",
+      "Descripcion": "El código de CUPS se puede validar con el diagnóstico principal.",
+      "Observaciones": "Verificar tabla de referencia Dato (890701)",
+      "PathFuente": "usuarios[0].servicios.consultas[0].codConsulta",
+      "Fuente": "Rips"
+    },
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVC059",
+      "Descripcion": "El código de CUPS puede ser validado con el grupo de servicio, servicio, finalidad o causa.",
+      "Observaciones": "Verificar tabla de referencia CodConsulta (890701) - Finalidad (12)",
+      "PathFuente": "usuarios[0].servicios.consultas[0].codConsulta",
+      "Fuente": "Rips"
+    },
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVC063",
+      "Descripcion": "Se podrá validar la existencia del IUM o del CUM en el catálogo respectivo de SISPRO.",
+      "Observaciones": "El código de la tecnología  [000038879-01] no es válido, por favor verificar tabla de referencia.",
+      "PathFuente": "usuarios[0].servicios.medicamentos[0].codTecnologiaSalud",
+      "Fuente": "Rips"
+    },
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVC063",
+      "Descripcion": "Se podrá validar la existencia del IUM o del CUM en el catálogo respectivo de SISPRO.",
+      "Observaciones": "El código de la tecnología  [C08CN006151] no es válido, por favor verificar tabla de referencia.",
+      "PathFuente": "usuarios[0].servicios.medicamentos[2].codTecnologiaSalud",
+      "Fuente": "Rips"
+    },
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVC063",
+      "Descripcion": "Se podrá validar la existencia del IUM o del CUM en el catálogo respectivo de SISPRO.",
+      "Observaciones": "El código de la tecnología  [000142] no es válido, por favor verificar tabla de referencia.",
+      "PathFuente": "usuarios[0].servicios.medicamentos[1].codTecnologiaSalud",
+      "Fuente": "Rips"
+    },
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVC065",
+      "Descripcion": "Para '01: Medicamento con uso según registro sanitario', '02: Medicamento con uso como vital no disponible definido por INVIMA' o '04: Medicamento con uso no incluido en el registro sanitario(Listado UNIRS)' puede informar null.",
+      "Observaciones": "Tenga en cuenta que no es necesario que informe dato para el tipo de medicamento informado ya que el Ministerio de Salud y Protección Social obtiene los datos del medicamento informado a partir del código informado.",
+      "PathFuente": "usuarios[0].servicios.medicamentos[0].unidadMedida",
+      "Fuente": "Rips"
+    },
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVC065",
+      "Descripcion": "Para '01: Medicamento con uso según registro sanitario', '02: Medicamento con uso como vital no disponible definido por INVIMA' o '04: Medicamento con uso no incluido en el registro sanitario(Listado UNIRS)' puede informar null.",
+      "Observaciones": "Tenga en cuenta que no es necesario que informe dato para el tipo de medicamento informado ya que el Ministerio de Salud y Protección Social obtiene los datos del medicamento informado a partir del código informado.",
+      "PathFuente": "usuarios[0].servicios.medicamentos[0].concentracionMedicamento",
+      "Fuente": "Rips"
+    },
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVC065",
+      "Descripcion": "Para '01: Medicamento con uso según registro sanitario', '02: Medicamento con uso como vital no disponible definido por INVIMA' o '04: Medicamento con uso no incluido en el registro sanitario(Listado UNIRS)' puede informar null.",
+      "Observaciones": "Tenga en cuenta que no es necesario que informe dato para el tipo de medicamento informado ya que el Ministerio de Salud y Protección Social obtiene los datos del medicamento informado a partir del código informado.",
+      "PathFuente": "usuarios[0].servicios.medicamentos[1].nomTecnologiaSalud",
+      "Fuente": "Rips"
+    },
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVC065",
+      "Descripcion": "Para '01: Medicamento con uso según registro sanitario', '02: Medicamento con uso como vital no disponible definido por INVIMA' o '04: Medicamento con uso no incluido en el registro sanitario(Listado UNIRS)' puede informar null.",
+      "Observaciones": "Tenga en cuenta que no es necesario que informe dato para el tipo de medicamento informado ya que el Ministerio de Salud y Protección Social obtiene los datos del medicamento informado a partir del código informado.",
+      "PathFuente": "usuarios[0].servicios.medicamentos[0].nomTecnologiaSalud",
+      "Fuente": "Rips"
+    },
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVC063",
+      "Descripcion": "Se podrá validar la existencia del IUM o del CUM en el catálogo respectivo de SISPRO.",
+      "Observaciones": "El código de la tecnología  [H02AD006701] no es válido, por favor verificar tabla de referencia.",
+      "PathFuente": "usuarios[0].servicios.medicamentos[3].codTecnologiaSalud",
+      "Fuente": "Rips"
+    },
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVC065",
+      "Descripcion": "Para '01: Medicamento con uso según registro sanitario', '02: Medicamento con uso como vital no disponible definido por INVIMA' o '04: Medicamento con uso no incluido en el registro sanitario(Listado UNIRS)' puede informar null.",
+      "Observaciones": "Tenga en cuenta que no es necesario que informe dato para el tipo de medicamento informado ya que el Ministerio de Salud y Protección Social obtiene los datos del medicamento informado a partir del código informado.",
+      "PathFuente": "usuarios[0].servicios.medicamentos[1].concentracionMedicamento",
+      "Fuente": "Rips"
+    },
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVC065",
+      "Descripcion": "Para '01: Medicamento con uso según registro sanitario', '02: Medicamento con uso como vital no disponible definido por INVIMA' o '04: Medicamento con uso no incluido en el registro sanitario(Listado UNIRS)' puede informar null.",
+      "Observaciones": "Tenga en cuenta que no es necesario que informe dato para el tipo de medicamento informado ya que el Ministerio de Salud y Protección Social obtiene los datos del medicamento informado a partir del código informado.",
+      "PathFuente": "usuarios[0].servicios.medicamentos[1].unidadMedida",
+      "Fuente": "Rips"
+    },
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVG19",
+      "Descripcion": "No es permitido realizar la validación de una FEV en salud y su RIPS soporte emitida desde un PSS/PTS a otro PSS/PTS.",
+      "Observaciones": "No es permitido realizar la validación de una FEV en salud y su RIPS soporte emitida desde un PSS/PTS a otro PSS/PTS. NIT Prestador: 805027337 - NIT Pagador: 800088702",
+      "PathFuente": "NitPrestador",
+      "Fuente": "FevRips"
+    }
+  ]
+}

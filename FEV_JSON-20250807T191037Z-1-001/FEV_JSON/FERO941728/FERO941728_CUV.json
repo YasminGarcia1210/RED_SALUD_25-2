@@ -1,0 +1,34 @@
+{
+  "ResultState": true,
+  "ProcesoId": 1400,
+  "NumFactura": "FERO941728",
+  "CodigoUnicoValidacion": "5ba700e6b6388555df7c0d1c13c2ee8f2e996917f2a92e0d7423dd68e1c6cece84d723e711e2bf5ea189be2fe8c45291",
+  "FechaRadicacion": "2025-07-23T15:55:35.667Z",
+  "RutaArchivos": null,
+  "ResultadosValidacion": [
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVC019",
+      "Descripcion": "El código de CUPS se puede validar con el diagnóstico principal.",
+      "Observaciones": "Verificar tabla de referencia Dato (993504)",
+      "PathFuente": "usuarios[0].servicios.procedimientos[0].codProcedimiento",
+      "Fuente": "Rips"
+    },
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVC033",
+      "Descripcion": "El código de CIE no puede ser de factores que influyen en el estado de salud y contacto con los servicios sanitarios (CIE10: Z00-Z99 o su equivalente en la CIE vigente).",
+      "Observaciones": "El CIE10 [Z749] no es válido.",
+      "PathFuente": "usuarios[0].servicios.procedimientos[0].codDiagnosticoPrincipal",
+      "Fuente": "Rips"
+    },
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVG19",
+      "Descripcion": "No es permitido realizar la validación de una FEV en salud y su RIPS soporte emitida desde un PSS/PTS a otro PSS/PTS.",
+      "Observaciones": "No es permitido realizar la validación de una FEV en salud y su RIPS soporte emitida desde un PSS/PTS a otro PSS/PTS. NIT Prestador: 805027337 - NIT Pagador: 890303093",
+      "PathFuente": "NitPrestador",
+      "Fuente": "FevRips"
+    }
+  ]
+}

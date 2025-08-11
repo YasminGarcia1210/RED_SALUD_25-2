@@ -1,0 +1,47 @@
+{
+  "numNota": null,
+  "tipoNota": null,
+  "usuarios": [
+    {
+      "codSexo": "F",
+      "servicios": {
+        "procedimientos": [
+          {
+            "idMIPRES": null,
+            "vrServicio": 9000,
+            "codServicio": 328,
+            "consecutivo": 1,
+            "codPrestador": "760010395701",
+            "grupoServicios": "02",
+            "codComplicacion": null,
+            "conceptoRecaudo": "05",
+            "numAutorizacion": null,
+            "codProcedimiento": "993504",
+            "valorPagoModerador": 0,
+            "fechaInicioAtencion": "2025-06-24 08:57",
+            "numFEVPagoModerador": null,
+            "codDiagnosticoPrincipal": "Z749",
+            "viaIngresoServicioSalud": "02",
+            "finalidadTecnologiaSalud": "14",
+            "codDiagnosticoRelacionado": null,
+            "numDocumentoIdentificacion": "1115070093",
+            "tipoDocumentoIdentificacion": "CC",
+            "modalidadGrupoServicioTecSal": "01"
+          }
+        ]
+      },
+      "consecutivo": 1,
+      "incapacidad": "NO",
+      "tipoUsuario": "01",
+      "codPaisOrigen": "170",
+      "fechaNacimiento": "2001-03-30",
+      "codPaisResidencia": "170",
+      "codMunicipioResidencia": "76001",
+      "numDocumentoIdentificacion": "1005968952",
+      "tipoDocumentoIdentificacion": "CC",
+      "codZonaTerritorialResidencia": "02"
+    }
+  ],
+  "numFactura": "FERO941728",
+  "numDocumentoIdObligado": "805027337"
+}
