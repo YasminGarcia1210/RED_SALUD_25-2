@@ -359,5 +359,3 @@ Las contribuciones son bienvenidas. Por favor:
 5. Abre un Pull Request
 
 ---
-
-**¡El pipeline está listo para procesar miles de facturas de manera eficiente y confiable!** 🚀
