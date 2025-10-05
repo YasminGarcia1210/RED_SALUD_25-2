@@ -331,62 +331,76 @@ with col1:
 with col2:
     st.markdown("### 🎯 Características de Ripsy")
     
-    # Organizar en 2 columnas con emoticones de salud
-    col1, col2 = st.columns(2)
+    # Organizar en 2 columnas usando CSS flexbox para evitar anidamiento
+    features_data = [
+        {
+            "icon": "🧠",
+            "title": "IA Avanzada",
+            "description": "Powered by OpenAI GPT-4o-mini"
+        },
+        {
+            "icon": "🏥",
+            "title": "RIPS Expert",
+            "description": "Especialista en registros de salud"
+        },
+        {
+            "icon": "🔬",
+            "title": "Auditoría",
+            "description": "Análisis inteligente de facturas"
+        },
+        {
+            "icon": "📜",
+            "title": "Normativas",
+            "description": "Conocimiento de normativa colombiana"
+        },
+        {
+            "icon": "✅",
+            "title": "Validación",
+            "description": "Verificación automática de datos"
+        },
+        {
+            "icon": "👩‍⚕️",
+            "title": "Asesoría",
+            "description": "Orientación en procesos de salud"
+        }
+    ]
     
-    with col1:
-        features_left = [
-            {
-                "icon": "🧠",
-                "title": "IA Avanzada",
-                "description": "Powered by OpenAI GPT-4o-mini"
-            },
-            {
-                "icon": "🏥",
-                "title": "RIPS Expert",
-                "description": "Especialista en registros de salud"
-            },
-            {
-                "icon": "🔬",
-                "title": "Auditoría",
-                "description": "Análisis inteligente de facturas"
-            }
-        ]
-        
-        for feature in features_left:
-            st.markdown(f"""
-            <div class="feature-card fade-in">
-                <h4>{feature['icon']} {feature['title']}</h4>
-                <p>{feature['description']}</p>
-            </div>
-            """, unsafe_allow_html=True)
+    # Crear HTML con CSS flexbox para 2 columnas
+    left_features = features_data[:3]  # Primeras 3
+    right_features = features_data[3:]  # Últimas 3
     
-    with col2:
-        features_right = [
-            {
-                "icon": "📜",
-                "title": "Normativas",
-                "description": "Conocimiento de normativa colombiana"
-            },
-            {
-                "icon": "✅",
-                "title": "Validación",
-                "description": "Verificación automática de datos"
-            },
-            {
-                "icon": "👩‍⚕️",
-                "title": "Asesoría",
-                "description": "Orientación en procesos de salud"
-            }
-        ]
-        
-        for feature in features_right:
-            st.markdown(f"""
-            <div class="feature-card fade-in">
-                <h4>{feature['icon']} {feature['title']}</h4>
-                <p>{feature['description']}</p>
-            </div>
-            """, unsafe_allow_html=True)
+    st.markdown("""
+    <div style="display: flex; gap: 1rem; margin: 1rem 0;">
+        <div style="flex: 1;">
+    """, unsafe_allow_html=True)
+    
+    # Columna izquierda
+    for feature in left_features:
+        st.markdown(f"""
+        <div class="feature-card fade-in">
+            <h4>{feature['icon']} {feature['title']}</h4>
+            <p>{feature['description']}</p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.markdown("""
+        </div>
+        <div style="flex: 1;">
+    """, unsafe_allow_html=True)
+    
+    # Columna derecha
+    for feature in right_features:
+        st.markdown(f"""
+        <div class="feature-card fade-in">
+            <h4>{feature['icon']} {feature['title']}</h4>
+            <p>{feature['description']}</p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.markdown("""
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
     
     st.markdown("### 📈 Métricas en Tiempo Real")
     
