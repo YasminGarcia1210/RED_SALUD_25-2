@@ -28,7 +28,7 @@ services:
     volumes:
       - miniodata:/data
 
-  fastapi:
+    fastapi:
     image: python:3.10-slim
     container_name: rips_fastapi
     working_dir: /app
@@ -39,20 +39,19 @@ services:
       - OPENAI_MAX_TOKENS=${OPENAI_MAX_TOKENS}
       - OPENAI_TEMPERATURE=${OPENAI_TEMPERATURE}
     volumes:
-      # 🩵 Montamos directamente tu carpeta fastapi/app (donde está tu main actualizado)
+      # 🩵 Montamos directamente la  carpeta fastapi/app
       - ./fastapi/app:/app
       # 🩵 Montamos scripts y data desde el host
       - ./scripts:/app/scripts
       - ./data:/app/data
+      # 🩵 Montamos el requirements.txt desde la raíz
+      - ./requirements.txt:/app/requirements.txt
     command: >
       sh -c "pip install -r requirements.txt &&
-         uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+             uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
     ports:
       - "8200:8000"
     depends_on:
       - postgres
       - minio
 
-volumes:
-  pgdata:
-  miniodata:
