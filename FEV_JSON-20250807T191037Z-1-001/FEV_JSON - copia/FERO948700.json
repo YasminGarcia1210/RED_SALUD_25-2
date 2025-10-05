@@ -1,0 +1,48 @@
+{
+  "numNota": null,
+  "tipoNota": null,
+  "usuarios": [
+    {
+      "codSexo": "F",
+      "servicios": {
+        "consultas": [
+          {
+            "vrServicio": 36400,
+            "codConsulta": "890301",
+            "codServicio": 328,
+            "consecutivo": 1,
+            "codPrestador": "760010395701",
+            "grupoServicios": "05",
+            "conceptoRecaudo": "05",
+            "numAutorizacion": null,
+            "valorPagoModerador": 0,
+            "causaMotivoAtencion": "40",
+            "fechaInicioAtencion": "2025-07-07 11:53",
+            "numFEVPagoModerador": null,
+            "codDiagnosticoPrincipal": "Z358",
+            "finalidadTecnologiaSalud": "23",
+            "tipoDiagnosticoPrincipal": "03",
+            "codDiagnosticoRelacionado1": null,
+            "codDiagnosticoRelacionado2": null,
+            "codDiagnosticoRelacionado3": null,
+            "numDocumentoIdentificacion": "1143876084",
+            "tipoDocumentoIdentificacion": "CC",
+            "modalidadGrupoServicioTecSal": "01"
+          }
+        ]
+      },
+      "consecutivo": 1,
+      "incapacidad": "NO",
+      "tipoUsuario": "04",
+      "codPaisOrigen": "170",
+      "fechaNacimiento": "2006-06-30",
+      "codPaisResidencia": "170",
+      "codMunicipioResidencia": "76001",
+      "numDocumentoIdentificacion": "1150936076",
+      "tipoDocumentoIdentificacion": "CC",
+      "codZonaTerritorialResidencia": "02"
+    }
+  ],
+  "numFactura": "FERO948700",
+  "numDocumentoIdObligado": "805027337"
+}

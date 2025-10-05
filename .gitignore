@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # =======================
 # ARCHIVOS SENSIBLES Y CONFIGURACIÓN
 # =======================
@@ -218,3 +219,7 @@ deployment/
 deploy/
 *.deploy
 *.production
+=======
+.venv/
+.venv/
+>>>>>>> c51208fbf1e650f0d6cf09d43c9350f22ed2a415

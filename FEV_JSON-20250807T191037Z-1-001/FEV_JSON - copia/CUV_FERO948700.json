@@ -1,0 +1,34 @@
+{
+  "ResultState": true,
+  "ProcesoId": 628,
+  "NumFactura": "FERO948700",
+  "CodigoUnicoValidacion": "ce9af2a7eb18bf35e1990d8b6814d65470a21a9cadb3dfa55ca93c1a3b489c33707682305b781acecf318882e86e02da",
+  "FechaRadicacion": "2025-08-05T19:39:57.239Z",
+  "RutaArchivos": null,
+  "ResultadosValidacion": [
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVC005",
+      "Descripcion": "El tipo de usuario informado puede ser validado según la entidad responsable de pago informada en la factura electrónica de venta.",
+      "Observaciones": "El tipo de usuario [04] reportado en el RIPS, no corresponde a la cobertura o plan de beneficios informada en el XML [01]",
+      "PathFuente": "usuarios[0].tipoUsuario",
+      "Fuente": "Rips"
+    },
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVC071",
+      "Descripcion": "Si la finalidad informada corresponde a 'Atención para el seguimiento del recién nacido' se puede validar que la causa que motiva la atención corresponda a aquellas relacionadas con la 'Atención de población materno perinatal'.",
+      "Observaciones": "Verificar tablas de referencia, datos Finalidad 23 - Motivo 40",
+      "PathFuente": "usuarios[0].servicios.consultas[0].finalidadTecnologiaSalud",
+      "Fuente": "Rips"
+    },
+    {
+      "Clase": "NOTIFICACION",
+      "Codigo": "RVC019",
+      "Descripcion": "El código de CUPS se puede validar con el diagnóstico principal.",
+      "Observaciones": "Verificar tabla de referencia Dato (890301)",
+      "PathFuente": "usuarios[0].servicios.consultas[0].codConsulta",
+      "Fuente": "Rips"
+    }
+  ]
+}

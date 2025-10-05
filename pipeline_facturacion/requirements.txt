@@ -1,0 +1,34 @@
+# Dependencias base
+pdfplumber==0.10.2
+pandas==2.2.1
+
+# Orquestación y monitoreo
+prefect==2.14.0
+prefect-aws==0.3.0
+
+# Procesamiento distribuido
+pyspark==3.5.0
+delta-spark==3.0.0
+
+# Configuración y logging
+pydantic==2.5.0
+python-dotenv==1.0.0
+structlog==23.2.0
+
+# Validación y testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+
+# Utilidades
+click==8.1.7
+rich==13.7.0
+tqdm==4.66.1
+
+# Procesamiento de datos
+numpy==1.24.3
+openpyxl==3.1.2
+
+# APIs y servicios
+requests==2.31.0
+fastapi==0.104.1
+uvicorn==0.24.0

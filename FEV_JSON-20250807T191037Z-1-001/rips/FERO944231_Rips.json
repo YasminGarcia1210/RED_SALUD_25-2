@@ -1,0 +1,69 @@
+{
+  "numNota": null,
+  "tipoNota": null,
+  "usuarios": [
+    {
+      "codSexo": "M",
+      "servicios": {
+        "procedimientos": [
+          {
+            "idMIPRES": null,
+            "vrServicio": 9000,
+            "codServicio": 328,
+            "consecutivo": 1,
+            "codPrestador": "760010395701",
+            "grupoServicios": "02",
+            "codComplicacion": null,
+            "conceptoRecaudo": "05",
+            "numAutorizacion": null,
+            "codProcedimiento": "993510",
+            "valorPagoModerador": 0,
+            "fechaInicioAtencion": "2025-06-26 14:56",
+            "numFEVPagoModerador": null,
+            "codDiagnosticoPrincipal": "Z749",
+            "viaIngresoServicioSalud": "02",
+            "finalidadTecnologiaSalud": "14",
+            "codDiagnosticoRelacionado": null,
+            "numDocumentoIdentificacion": "1143952755",
+            "tipoDocumentoIdentificacion": "CC",
+            "modalidadGrupoServicioTecSal": "01"
+          },
+          {
+            "idMIPRES": null,
+            "vrServicio": 9000,
+            "codServicio": 328,
+            "consecutivo": 2,
+            "codPrestador": "760010395701",
+            "grupoServicios": "02",
+            "codComplicacion": null,
+            "conceptoRecaudo": "05",
+            "numAutorizacion": null,
+            "codProcedimiento": "993513",
+            "valorPagoModerador": 0,
+            "fechaInicioAtencion": "2025-06-26 14:56",
+            "numFEVPagoModerador": null,
+            "codDiagnosticoPrincipal": "Z749",
+            "viaIngresoServicioSalud": "02",
+            "finalidadTecnologiaSalud": "14",
+            "codDiagnosticoRelacionado": null,
+            "numDocumentoIdentificacion": "1143952755",
+            "tipoDocumentoIdentificacion": "CC",
+            "modalidadGrupoServicioTecSal": "01"
+          }
+        ]
+      },
+      "consecutivo": 1,
+      "incapacidad": "NO",
+      "tipoUsuario": "02",
+      "codPaisOrigen": "170",
+      "fechaNacimiento": "2010-12-28",
+      "codPaisResidencia": "170",
+      "codMunicipioResidencia": "76001",
+      "numDocumentoIdentificacion": "1105379204",
+      "tipoDocumentoIdentificacion": "TI",
+      "codZonaTerritorialResidencia": "02"
+    }
+  ],
+  "numFactura": "FERO944231",
+  "numDocumentoIdObligado": "805027337"
+}
