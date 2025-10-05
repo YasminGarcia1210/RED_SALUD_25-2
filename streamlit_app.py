@@ -331,46 +331,62 @@ with col1:
 with col2:
     st.markdown("### 🎯 Características de Ripsy")
     
-    features = [
-        {
-            "icon": "🤖",
-            "title": "IA Avanzada",
-            "description": "Powered by OpenAI GPT-4o-mini"
-        },
-        {
-            "icon": "📋",
-            "title": "RIPS Expert",
-            "description": "Especialista en registros de salud"
-        },
-        {
-            "icon": "📊",
-            "title": "Auditoría",
-            "description": "Análisis inteligente de facturas"
-        },
-        {
-            "icon": "📚",
-            "title": "Normativas",
-            "description": "Conocimiento de normativa colombiana"
-        },
-        {
-            "icon": "🔍",
-            "title": "Validación",
-            "description": "Verificación automática de datos"
-        },
-        {
-            "icon": "💡",
-            "title": "Asesoría",
-            "description": "Orientación en procesos de salud"
-        }
-    ]
+    # Organizar en 2 columnas con emoticones de salud
+    col1, col2 = st.columns(2)
     
-    for feature in features:
-        st.markdown(f"""
-        <div class="feature-card fade-in">
-            <h4>{feature['icon']} {feature['title']}</h4>
-            <p>{feature['description']}</p>
-        </div>
-        """, unsafe_allow_html=True)
+    with col1:
+        features_left = [
+            {
+                "icon": "🧠",
+                "title": "IA Avanzada",
+                "description": "Powered by OpenAI GPT-4o-mini"
+            },
+            {
+                "icon": "🏥",
+                "title": "RIPS Expert",
+                "description": "Especialista en registros de salud"
+            },
+            {
+                "icon": "🔬",
+                "title": "Auditoría",
+                "description": "Análisis inteligente de facturas"
+            }
+        ]
+        
+        for feature in features_left:
+            st.markdown(f"""
+            <div class="feature-card fade-in">
+                <h4>{feature['icon']} {feature['title']}</h4>
+                <p>{feature['description']}</p>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    with col2:
+        features_right = [
+            {
+                "icon": "📜",
+                "title": "Normativas",
+                "description": "Conocimiento de normativa colombiana"
+            },
+            {
+                "icon": "✅",
+                "title": "Validación",
+                "description": "Verificación automática de datos"
+            },
+            {
+                "icon": "👩‍⚕️",
+                "title": "Asesoría",
+                "description": "Orientación en procesos de salud"
+            }
+        ]
+        
+        for feature in features_right:
+            st.markdown(f"""
+            <div class="feature-card fade-in">
+                <h4>{feature['icon']} {feature['title']}</h4>
+                <p>{feature['description']}</p>
+            </div>
+            """, unsafe_allow_html=True)
     
     st.markdown("### 📈 Métricas en Tiempo Real")
     
