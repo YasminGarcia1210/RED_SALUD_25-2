@@ -1,4 +1,5 @@
 version: "3.8"
+
 services:
   postgres:
     image: pgvector/pgvector:pg15
@@ -38,8 +39,15 @@ services:
       - OPENAI_MAX_TOKENS=${OPENAI_MAX_TOKENS}
       - OPENAI_TEMPERATURE=${OPENAI_TEMPERATURE}
     volumes:
-      - ./fastapi/app:/app
-    command: sh -c "pip install fastapi uvicorn psycopg2-binary python-multipart boto3 requests minio openai && uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+      # 🔹 Monta tu main.py real directamente
+      - ./main.py:/app/main.py
+      # 🔹 Monta tus scripts (por si los modificas desde el host)
+      - ./scripts:/app/scripts
+      # 🔹 Monta tus datos (PDFs, normativas, etc.)
+      - ./data:/app/data
+    command: >
+      sh -c "pip install fastapi uvicorn psycopg2-binary python-multipart boto3 requests minio openai &&
+             uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
     ports:
       - "8200:8000"
     depends_on:
