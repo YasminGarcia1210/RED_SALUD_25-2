@@ -155,6 +155,23 @@ def get_openai_status():
     except:
         return None
 
+def analizar_glosa(factura_file, historia_file):
+    """Envía archivos para análisis de glosa"""
+    try:
+        files = {
+            'factura': ('factura.pdf', factura_file, 'application/pdf'),
+            'historia_clinica': ('historia.pdf', historia_file, 'application/pdf')
+        }
+        
+        response = requests.post(
+            f"{API_BASE_URL}/analizar-glosa",
+            files=files,
+            timeout=60
+        )
+        return response.json() if response.status_code == 200 else None
+    except:
+        return None
+
 # ======================================================
 # 🎨 INTERFAZ PRINCIPAL
 # ======================================================
@@ -218,8 +235,12 @@ with st.sidebar:
     if st.button("📋 Ver Historial"):
         st.info("Función próximamente disponible")
 
-# Contenido principal
-col1, col2 = st.columns([2, 1])
+# Tabs para diferentes funcionalidades
+tab1, tab2 = st.tabs(["💬 Chat con Ripsy", "🔍 Análisis de Glosa"])
+
+with tab1:
+    # Contenido principal del chat
+    col1, col2 = st.columns([2, 1])
 
 with col1:
     st.markdown("### 💬 Chat con Ripsy")
@@ -419,6 +440,111 @@ with col2:
         </div>
     </div>
     """, unsafe_allow_html=True)
+
+with tab2:
+    st.markdown("### 🔍 Análisis de Probabilidad de Glosa")
+    st.markdown("Sube una factura y una historia clínica en PDF para analizar la probabilidad de glosa.")
+    
+    # Subida de archivos
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("#### 📄 Factura PDF")
+        factura = st.file_uploader(
+            "Selecciona la factura",
+            type=['pdf'],
+            key="factura_upload",
+            help="Sube el archivo PDF de la factura médica"
+        )
+        
+        if factura:
+            st.success(f"✅ Factura cargada: {factura.name}")
+            st.info(f"📊 Tamaño: {factura.size / 1024:.1f} KB")
+    
+    with col2:
+        st.markdown("#### 🏥 Historia Clínica PDF")
+        historia = st.file_uploader(
+            "Selecciona la historia clínica",
+            type=['pdf'],
+            key="historia_upload",
+            help="Sube el archivo PDF de la historia clínica"
+        )
+        
+        if historia:
+            st.success(f"✅ Historia clínica cargada: {historia.name}")
+            st.info(f"📊 Tamaño: {historia.size / 1024:.1f} KB")
+    
+    # Botón de análisis
+    if st.button("🔬 Analizar Probabilidad de Glosa", type="primary", use_container_width=True):
+        if factura and historia:
+            with st.spinner("🧠 Ripsy está analizando los documentos..."):
+                # Reiniciar archivos al inicio
+                factura.file.seek(0)
+                historia.file.seek(0)
+                
+                resultado = analizar_glosa(factura.file, historia.file)
+                
+                if resultado and resultado.get("ok"):
+                    # Mostrar resultados
+                    probabilidad = resultado.get("probabilidad_glosa", 0)
+                    nivel_riesgo = resultado.get("nivel_riesgo", "MEDIO")
+                    
+                    # Color según el nivel de riesgo
+                    if nivel_riesgo == "BAJO":
+                        color_riesgo = "#28a745"  # Verde
+                        emoji_riesgo = "✅"
+                    elif nivel_riesgo == "MEDIO":
+                        color_riesgo = "#ffc107"  # Amarillo
+                        emoji_riesgo = "⚠️"
+                    else:
+                        color_riesgo = "#dc3545"  # Rojo
+                        emoji_riesgo = "❌"
+                    
+                    # Resultado principal
+                    st.markdown(f"""
+                    <div style="background: {color_riesgo}; color: white; padding: 2rem; border-radius: 10px; text-align: center; margin: 1rem 0;">
+                        <h2>{emoji_riesgo} Probabilidad de Glosa: {probabilidad}%</h2>
+                        <h3>Nivel de Riesgo: {nivel_riesgo}</h3>
+                    </div>
+                    """, unsafe_allow_html=True)
+                    
+                    # Barra de progreso
+                    st.progress(probabilidad / 100)
+                    
+                    # Factores de riesgo
+                    st.markdown("#### 🚨 Factores de Riesgo Identificados")
+                    factores = resultado.get("factores_riesgo", [])
+                    for i, factor in enumerate(factores, 1):
+                        st.markdown(f"**{i}.** {factor}")
+                    
+                    # Recomendaciones
+                    st.markdown("#### 💡 Recomendaciones")
+                    recomendaciones = resultado.get("recomendaciones", [])
+                    for i, rec in enumerate(recomendaciones, 1):
+                        st.markdown(f"**{i}.** {rec}")
+                    
+                    # Puntuación detallada
+                    st.markdown("#### 📊 Puntuación Detallada")
+                    puntuacion = resultado.get("puntuacion_detallada", {})
+                    
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        st.metric("Coherencia Diagnóstica", f"{puntuacion.get('coherencia_diagnostica', 0)}%")
+                        st.metric("Justificación Médica", f"{puntuacion.get('justificacion_medica', 0)}%")
+                    with col2:
+                        st.metric("Cumplimiento Normativo", f"{puntuacion.get('cumplimiento_normativo', 0)}%")
+                        st.metric("Calidad Documental", f"{puntuacion.get('calidad_documental', 0)}%")
+                    
+                    # Archivos analizados
+                    archivos = resultado.get("archivos_analizados", {})
+                    st.markdown("#### 📁 Archivos Analizados")
+                    st.info(f"**Factura:** {archivos.get('factura', 'N/A')}")
+                    st.info(f"**Historia Clínica:** {archivos.get('historia_clinica', 'N/A')}")
+                    
+                else:
+                    st.error("❌ Error al analizar los documentos. Verifica que los archivos sean PDFs válidos.")
+        else:
+            st.warning("⚠️ Por favor, sube tanto la factura como la historia clínica en formato PDF.")
 
 # Footer
 st.markdown("---")

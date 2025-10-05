@@ -8,3 +8,7 @@ minio
 openai
 python-dotenv
 streamlit
+PyPDF2
+pytesseract
+Pillow
+pdfplumber

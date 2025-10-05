@@ -282,3 +282,122 @@ def list_documents(folder: str = Query("facturas")):
     from storage import list_files_in_folder
     files = list_files_in_folder(folder)
     return {"ok": True, "folder": folder, "files": files}
+
+
+# ======================================================
+# 🔍 ANÁLISIS DE PROBABILIDAD DE GLOSA
+# ======================================================
+@app.post("/analizar-glosa")
+async def analizar_probabilidad_glosa(
+    factura: UploadFile = File(...),
+    historia_clinica: UploadFile = File(...)
+):
+    """
+    Analiza la probabilidad de glosa basándose en factura e historia clínica.
+    """
+    try:
+        # Verificar que sean PDFs
+        if not factura.filename.lower().endswith('.pdf'):
+            raise HTTPException(status_code=400, detail="La factura debe ser un archivo PDF")
+        if not historia_clinica.filename.lower().endswith('.pdf'):
+            raise HTTPException(status_code=400, detail="La historia clínica debe ser un archivo PDF")
+        
+        # Extraer texto de los PDFs
+        texto_factura = extract_text_from_pdf(factura.file)
+        texto_historia = extract_text_from_pdf(historia_clinica.file)
+        
+        # Analizar con IA
+        analisis = analyze_documents_with_ai(texto_factura, texto_historia)
+        
+        return {
+            "ok": True,
+            "probabilidad_glosa": analisis["probabilidad"],
+            "nivel_riesgo": analisis["nivel_riesgo"],
+            "factores_riesgo": analisis["factores_riesgo"],
+            "recomendaciones": analisis["recomendaciones"],
+            "puntuacion_detallada": analisis["puntuacion_detallada"],
+            "archivos_analizados": {
+                "factura": factura.filename,
+                "historia_clinica": historia_clinica.filename
+            }
+        }
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error en el análisis: {str(e)}")
+
+
+def extract_text_from_pdf(file_data):
+    """Extrae texto de un archivo PDF."""
+    try:
+        import pdfplumber
+        
+        # Leer el PDF
+        with pdfplumber.open(file_data) as pdf:
+            text = ""
+            for page in pdf.pages:
+                page_text = page.extract_text()
+                if page_text:
+                    text += page_text + "\n"
+        
+        return text.strip()
+    except Exception as e:
+        raise Exception(f"Error extrayendo texto del PDF: {str(e)}")
+
+
+def analyze_documents_with_ai(texto_factura, texto_historia):
+    """Analiza los documentos con IA para determinar probabilidad de glosa."""
+    try:
+        # Crear prompt para OpenAI
+        prompt = f"""
+        Eres un experto en auditoría de facturas médicas en Colombia. 
+        Analiza estos documentos y determina la probabilidad de glosa (0-100%).
+        
+        FACTURA:
+        {texto_factura[:2000]}...
+        
+        HISTORIA CLÍNICA:
+        {texto_historia[:2000]}...
+        
+        Analiza y responde en formato JSON:
+        {{
+            "probabilidad": número_entero_0_a_100,
+            "nivel_riesgo": "BAJO" o "MEDIO" o "ALTO",
+            "factores_riesgo": ["factor1", "factor2", "factor3"],
+            "recomendaciones": ["recomendación1", "recomendación2"],
+            "puntuacion_detallada": {{
+                "coherencia_diagnostica": 0-100,
+                "justificacion_medica": 0-100,
+                "cumplimiento_normativo": 0-100,
+                "calidad_documental": 0-100
+            }}
+        }}
+        """
+        
+        # Llamar a OpenAI
+        response = openai.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=1000,
+            temperature=0.3
+        )
+        
+        # Parsear respuesta JSON
+        import json
+        resultado = json.loads(response.choices[0].message.content)
+        
+        return resultado
+        
+    except Exception as e:
+        # Respuesta de fallback si hay error
+        return {
+            "probabilidad": 50,
+            "nivel_riesgo": "MEDIO",
+            "factores_riesgo": ["Error en el análisis", "Revisar documentos"],
+            "recomendaciones": ["Verificar calidad de los PDFs", "Intentar nuevamente"],
+            "puntuacion_detallada": {
+                "coherencia_diagnostica": 50,
+                "justificacion_medica": 50,
+                "cumplimiento_normativo": 50,
+                "calidad_documental": 50
+            }
+        }
