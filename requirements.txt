@@ -7,3 +7,4 @@ requests
 minio
 openai
 python-dotenv
+streamlit
