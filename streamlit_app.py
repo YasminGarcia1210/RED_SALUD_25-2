@@ -374,24 +374,21 @@ with col2:
     
     st.markdown("### 📈 Métricas en Tiempo Real")
     
-    col1, col2 = st.columns(2)
-    with col1:
-        st.markdown("""
-        <div class="metric-card">
+    # Métricas en una sola fila sin columnas anidadas
+    st.markdown("""
+    <div style="display: flex; gap: 1rem; margin: 1rem 0;">
+        <div class="metric-card" style="flex: 1;">
             <h3>💬</h3>
             <h2>""" + str(len(st.session_state.messages)) + """</h2>
             <p>Mensajes</p>
         </div>
-        """, unsafe_allow_html=True)
-    
-    with col2:
-        st.markdown("""
-        <div class="metric-card">
+        <div class="metric-card" style="flex: 1;">
             <h3>⚡</h3>
             <h2>99%</h2>
             <p>Disponibilidad</p>
         </div>
-        """, unsafe_allow_html=True)
+    </div>
+    """, unsafe_allow_html=True)
 
 # Footer
 st.markdown("---")
