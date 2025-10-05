@@ -1,0 +1,163 @@
+Glosario de términos para facturación en salud en Colombia (RIPSY)
+
+RIPS (Registros Individuales de Prestaci贸n de Servicios de Salud):
+Conjunto de archivos que registran la informaci贸n detallada de los servicios de salud prestados a los usuarios. Su objetivo es permitir la validaci贸n, control y pago de los servicios ante las EPS y el Ministerio de Salud.
+
+Resoluci贸n 3374 de 2000:
+Norma que define la estructura, contenido y obligatoriedad de los RIPS en Colombia. Es la base legal para la presentaci贸n y validaci贸n de la informaci贸n de servicios de salud.
+
+EPS (Entidad Promotora de Salud):
+Entidad encargada de afiliar a los ciudadanos al Sistema General de Seguridad Social en Salud (SGSSS) y garantizar la prestaci贸n de los servicios de salud. Ejemplos: Emssanar, Coosalud, Nueva EPS.
+
+IPS (Instituci贸n Prestadora de Salud):
+Hospital, cl铆nica o centro de salud encargado de prestar los servicios de salud a los usuarios. Genera las facturas y RIPS que luego son radicados a la EPS.
+
+Glosa:
+Inconsistencia o rechazo parcial/total de una factura presentada por la IPS a la EPS. Puede ser de tipo administrativo, t茅cnico o m茅dico. Ejemplo: falta de soporte, error en el c贸digo CUPS, valores no reconocidos.
+
+Radicaci贸n de facturas:
+Proceso mediante el cual la IPS entrega formalmente a la EPS las facturas junto con sus RIPS y soportes para el cobro de servicios prestados. Puede hacerse en f铆sico o a trav茅s de plataformas electr贸nicas.
+
+Archivos principales de RIPS y sus campos b谩sicos:
+
+1. **US 鈥?Usuarios del sistema**
+   - Tipo de documento
+   - N煤mero de identificaci贸n
+   - C贸digo del municipio de residencia
+   - Fecha de nacimiento
+   - Sexo
+   - C贸digo de la EPS
+   - Tipo de afiliado
+   - Primer apellido, segundo apellido, primer nombre, segundo nombre
+
+2. **AC 鈥?Atenci贸n en consulta**
+   - N煤mero de factura
+   - C贸digo de prestador
+   - Tipo y n煤mero de documento del usuario
+   - Fecha de consulta
+   - C贸digo de consulta
+   - Finalidad de la consulta
+   - Causa externa
+   - C贸digo del diagn贸stico principal
+   - C贸digos de diagn贸sticos relacionados
+   - Tipo de diagn贸stico principal
+   - Valor de la consulta
+   - Valor de la cuota moderadora
+
+3. **AP 鈥?Atenci贸n en procedimientos**
+   - N煤mero de factura
+   - C贸digo de prestador
+   - Tipo y n煤mero de documento del usuario
+   - Fecha de procedimiento
+   - C贸digo del procedimiento (CUPS)
+   - 脕mbito de realizaci贸n
+   - Finalidad
+   - Personal que atiende
+   - Diagn贸stico principal
+   - Diagn贸sticos relacionados
+   - Complicaciones
+   - Valor del procedimiento
+
+4. **AH 鈥?Atenci贸n en hospitalizaci贸n**
+   - N煤mero de factura
+   - C贸digo de prestador
+   - Tipo y n煤mero de documento del usuario
+   - V铆a de ingreso
+   - Fecha y hora de ingreso
+   - Fecha y hora de egreso
+   - Autorizaci贸n
+   - Causa externa
+   - Diagn贸stico de ingreso
+   - Diagn贸stico de egreso
+   - Diagn贸sticos relacionados
+   - Estado de salida
+   - Diagn贸stico de muerte (si aplica)
+
+5. **AM 鈥?Medicamentos**
+   - N煤mero de factura
+   - C贸digo del prestador
+   - Tipo y n煤mero de documento del usuario
+   - Autorizaci贸n
+   - C贸digo del medicamento
+   - Nombre gen茅rico
+   - Forma farmac茅utica
+   - Concentraci贸n
+   - Unidad de medida
+   - N煤mero de unidades
+   - Valor unitario
+   - Valor total
+
+6. **AT 鈥?Atenci贸n en urgencias**
+   - N煤mero de factura
+   - C贸digo del prestador
+   - Tipo y n煤mero de documento del usuario
+   - Fecha y hora de atenci贸n
+   - Autorizaci贸n
+   - Causa externa
+   - Diagn贸stico de ingreso
+   - Diagn贸stico de salida
+   - Estado de salida
+   - Diagn贸stico de muerte (si aplica)
+
+7. **AU 鈥?Otros servicios**
+   - N煤mero de factura
+   - C贸digo del prestador
+   - Tipo y n煤mero de documento del usuario
+   - Fecha del servicio
+   - Autorizaci贸n
+   - C贸digo del servicio
+   - Valor del servicio
+
+8. **AF 鈥?Factura**
+   - C贸digo del prestador
+   - N煤mero de factura
+   - Fecha de expedici贸n
+   - Tipo de documento del usuario
+   - N煤mero de identificaci贸n
+   - N煤mero de contrato / autorizaci贸n
+   - Plan de beneficios
+   - Valor total del copago
+   - Valor total de la cuota moderadora
+   - Valor neto a pagar
+
+9. **CT 鈥?Archivo de control**
+   - C贸digo del prestador
+   - Fecha de remisi贸n
+   - N煤mero total de registros por archivo
+   - Nombre de cada archivo reportado
+   - Totales facturados
+   - N煤mero de la remisi贸n
+
+C贸digo CUPS:
+Clasificaci贸n 脷nica de Procedimientos en Salud. Cat谩logo que codifica todos los procedimientos m茅dicos que pueden facturarse en Colombia.
+
+Capitado:
+Modalidad de pago en la cual la EPS paga a la IPS un valor fijo por cada usuario afiliado, independientemente de si usa o no los servicios de salud.
+
+Evento:
+Caso particular de atenci贸n en salud que puede generar uno o varios registros en RIPS (ejemplo: un parto, una cirug铆a, una consulta externa).
+
+Glosas recurrentes:
+- Diferencias entre el valor facturado y el autorizado.
+- Datos incompletos en los RIPS.
+- Facturas fuera de tiempo de radicaci贸n.
+- Usuarios sin afiliaci贸n activa.
+- Soportes cl铆nicos faltantes.
+
+Reversi贸n de glosas:
+Proceso de respuesta de la IPS a las glosas presentadas por la EPS, aportando soportes adicionales o corrigiendo los errores.
+
+FURIPS:
+Formato 脷nico de Reclamaci贸n por Accidentes de Tr谩nsito. Documento espec铆fico para el cobro de servicios derivados de accidentes de tr谩nsito (SOAT).
+
+UPC (Unidad de Pago por Capitaci贸n):
+Valor que reconoce el sistema de salud a las EPS por cada usuario afiliado para financiar la prestaci贸n de servicios del Plan de Beneficios.
+
+PILA:
+Planilla Integrada de Liquidaci贸n de Aportes. Herramienta usada para pagar la seguridad social (salud, pensi贸n, riesgos laborales).
+
+--- 
+
+鈿狅笍 Nota:
+Toda la informaci贸n contenida en este glosario est谩 orientada al contexto colombiano de facturaci贸n en salud y RIPS.
+Si una pregunta no corresponde a este 谩mbito, el asistente debe responder que no puede contestar porque solo se enfoca en facturaci贸n y salud.

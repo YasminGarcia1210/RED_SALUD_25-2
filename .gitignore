@@ -1,0 +1,220 @@
+# =======================
+# ARCHIVOS SENSIBLES Y CONFIGURACIÓN
+# =======================
+.env
+.env.local
+.env.production
+.env.staging
+*.env
+config/secrets.json
+secrets/
+credentials/
+
+# =======================
+# ARCHIVOS DE BASE DE DATOS
+# =======================
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+postgres/
+pgdata/
+*.dump
+*.sql
+
+# =======================
+# ARCHIVOS DE DOCUMENTOS Y MEDIA
+# =======================
+# PDFs y documentos
+*.pdf
+*.PDF
+documents/
+documentos/
+facturas/
+historias_clinicas/
+rips_json/
+soportes/
+
+# Imágenes y fotos
+*.jpg
+*.jpeg
+*.JPG
+*.JPEG
+*.png
+*.PNG
+*.gif
+*.GIF
+*.bmp
+*.BMP
+*.tiff
+*.TIFF
+*.webp
+*.WEBP
+*.svg
+*.SVG
+images/
+imagenes/
+fotos/
+photos/
+media/
+
+# Videos
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+*.mkv
+videos/
+
+# Audio
+*.mp3
+*.wav
+*.flac
+*.aac
+*.ogg
+*.m4a
+audio/
+
+# =======================
+# ARCHIVOS DE OFICINA
+# =======================
+*.doc
+*.docx
+*.DOC
+*.DOCX
+*.xls
+*.xlsx
+*.XLS
+*.XLSX
+*.ppt
+*.pptx
+*.PPT
+*.PPTX
+*.odt
+*.ods
+*.odp
+
+# =======================
+# ARCHIVOS DE DESARROLLO
+# =======================
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# =======================
+# ARCHIVOS DE DOCKER
+# =======================
+docker-compose.override.yml
+.dockerignore
+
+# =======================
+# ARCHIVOS DE LOGS
+# =======================
+*.log
+logs/
+log/
+
+# =======================
+# ARCHIVOS TEMPORALES
+# =======================
+*.tmp
+*.temp
+temp/
+tmp/
+cache/
+
+# =======================
+# ARCHIVOS DE BACKUP
+# =======================
+*.bak
+*.backup
+*.old
+backup/
+backups/
+
+# =======================
+# ARCHIVOS DE SISTEMA
+# =======================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# =======================
+# ARCHIVOS ESPECÍFICOS DEL PROYECTO
+# =======================
+# Archivos de configuración local
+config/local/
+local_config/
+
+# Archivos de datos sensibles
+data/sensitive/
+private_data/
+
+# Archivos de MinIO local
+minio_data/
+miniodata/
+
+# Archivos de PostgreSQL local
+postgres_data/
+pgdata/
+
+# =======================
+# ARCHIVOS DE TESTING
+# =======================
+test_files/
+test_data/
+*.test
+tests/fixtures/
+
+# =======================
+# ARCHIVOS DE DEPLOYMENT
+# =======================
+deployment/
+deploy/
+*.deploy
+*.production
