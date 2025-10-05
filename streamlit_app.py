@@ -478,11 +478,11 @@ with tab2:
     if st.button("🔬 Analizar Probabilidad de Glosa", type="primary", use_container_width=True):
         if factura and historia:
             with st.spinner("🧠 Ripsy está analizando los documentos..."):
-                # Reiniciar archivos al inicio
-                factura.file.seek(0)
-                historia.file.seek(0)
+                # Obtener contenido de los archivos
+                factura_content = factura.getvalue()
+                historia_content = historia.getvalue()
                 
-                resultado = analizar_glosa(factura.file, historia.file)
+                resultado = analizar_glosa(factura_content, historia_content)
                 
                 if resultado and resultado.get("ok"):
                     # Mostrar resultados
