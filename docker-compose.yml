@@ -39,11 +39,10 @@ services:
       - OPENAI_MAX_TOKENS=${OPENAI_MAX_TOKENS}
       - OPENAI_TEMPERATURE=${OPENAI_TEMPERATURE}
     volumes:
-      # 🔹 Monta tu main.py real directamente
-      - ./main.py:/app/main.py
-      # 🔹 Monta tus scripts (por si los modificas desde el host)
+      # 🩵 Montamos directamente tu carpeta fastapi/app (donde está tu main actualizado)
+      - ./fastapi/app:/app
+      # 🩵 Montamos scripts y data desde el host
       - ./scripts:/app/scripts
-      # 🔹 Monta tus datos (PDFs, normativas, etc.)
       - ./data:/app/data
     command: >
       sh -c "pip install fastapi uvicorn psycopg2-binary python-multipart boto3 requests minio openai &&
