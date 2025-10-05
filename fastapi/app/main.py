@@ -347,57 +347,71 @@ def extract_text_from_pdf(file_data):
 def analyze_documents_with_ai(texto_factura, texto_historia):
     """Analiza los documentos con IA para determinar probabilidad de glosa."""
     try:
-        # Crear prompt para OpenAI
-        prompt = f"""
-        Eres un experto en auditoría de facturas médicas en Colombia. 
-        Analiza estos documentos y determina la probabilidad de glosa (0-100%).
+        # Usar el modelo mejorado
+        from modelo_glosa import ModeloGlosaMejorado
         
-        FACTURA:
-        {texto_factura[:2000]}...
-        
-        HISTORIA CLÍNICA:
-        {texto_historia[:2000]}...
-        
-        Analiza y responde en formato JSON:
-        {{
-            "probabilidad": número_entero_0_a_100,
-            "nivel_riesgo": "BAJO" o "MEDIO" o "ALTO",
-            "factores_riesgo": ["factor1", "factor2", "factor3"],
-            "recomendaciones": ["recomendación1", "recomendación2"],
-            "puntuacion_detallada": {{
-                "coherencia_diagnostica": 0-100,
-                "justificacion_medica": 0-100,
-                "cumplimiento_normativo": 0-100,
-                "calidad_documental": 0-100
-            }}
-        }}
-        """
-        
-        # Llamar a OpenAI
-        response = openai.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=1000,
-            temperature=0.3
-        )
-        
-        # Parsear respuesta JSON
-        import json
-        resultado = json.loads(response.choices[0].message.content)
+        modelo = ModeloGlosaMejorado()
+        resultado = modelo.analizar_documentos(texto_factura, texto_historia)
         
         return resultado
         
     except Exception as e:
-        # Respuesta de fallback si hay error
-        return {
-            "probabilidad": 50,
-            "nivel_riesgo": "MEDIO",
-            "factores_riesgo": ["Error en el análisis", "Revisar documentos"],
-            "recomendaciones": ["Verificar calidad de los PDFs", "Intentar nuevamente"],
-            "puntuacion_detallada": {
-                "coherencia_diagnostica": 50,
-                "justificacion_medica": 50,
-                "cumplimiento_normativo": 50,
-                "calidad_documental": 50
+        print(f"❌ Error en análisis con modelo mejorado: {e}")
+        
+        # Fallback a OpenAI si el modelo falla
+        try:
+            prompt = f"""
+            Eres un experto en auditoría de facturas médicas en Colombia. 
+            Analiza estos documentos y determina la probabilidad de glosa (0-100%).
+            
+            FACTURA:
+            {texto_factura[:2000]}...
+            
+            HISTORIA CLÍNICA:
+            {texto_historia[:2000]}...
+            
+            Analiza y responde en formato JSON:
+            {{
+                "probabilidad": número_entero_0_a_100,
+                "nivel_riesgo": "BAJO" o "MEDIO" o "ALTO",
+                "factores_riesgo": ["factor1", "factor2", "factor3"],
+                "recomendaciones": ["recomendación1", "recomendación2"],
+                "puntuacion_detallada": {{
+                    "coherencia_diagnostica": 0-100,
+                    "justificacion_medica": 0-100,
+                    "cumplimiento_normativo": 0-100,
+                    "calidad_documental": 0-100
+                }}
+            }}
+            """
+            
+            # Llamar a OpenAI
+            response = openai.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=1000,
+                temperature=0.3
+            )
+            
+            # Parsear respuesta JSON
+            import json
+            resultado = json.loads(response.choices[0].message.content)
+            
+            return resultado
+            
+        except Exception as e2:
+            print(f"❌ Error en fallback OpenAI: {e2}")
+            
+            # Respuesta de fallback final
+            return {
+                "probabilidad": 50,
+                "nivel_riesgo": "MEDIO",
+                "factores_riesgo": ["Error en el análisis", "Revisar documentos"],
+                "recomendaciones": ["Verificar calidad de los PDFs", "Intentar nuevamente"],
+                "puntuacion_detallada": {
+                    "coherencia_diagnostica": 50,
+                    "justificacion_medica": 50,
+                    "cumplimiento_normativo": 50,
+                    "calidad_documental": 50
+                }
             }
-        }

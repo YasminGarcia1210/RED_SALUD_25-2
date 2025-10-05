@@ -1,0 +1,67 @@
+{
+  "resumen": {
+    "archivos_procesados": 18,
+    "errores_encontrados": 0,
+    "total_codigos": 10,
+    "total_clases": 1
+  },
+  "codigos_validacion": {
+    "RVC019": 23,
+    "RVC033": 20,
+    "RVG19": 12,
+    "RVC051": 18,
+    "RVC017": 1,
+    "RVC059": 3,
+    "RVC063": 4,
+    "RVC065": 6,
+    "RVC005": 3,
+    "RVC071": 1
+  },
+  "clases_validacion": {
+    "NOTIFICACION": 91
+  },
+  "descripciones_ejemplo": [
+    "El código de CUPS se puede validar con el diagnóstico principal.",
+    "El código de CIE no puede ser de factores que influyen en el estado de salud y contacto con los servicios sanitarios (CIE10: Z00-Z99 o su equivalente en la CIE vigente).",
+    "No es permitido realizar la validación de una FEV en salud y su RIPS soporte emitida desde un PSS/PTS a otro PSS/PTS.",
+    "El código de CUPS se puede validar con el diagnóstico principal.",
+    "El código de CIE no puede ser de factores que influyen en el estado de salud y contacto con los servicios sanitarios (CIE10: Z00-Z99 o su equivalente en la CIE vigente).",
+    "La finalidad informada se puede validar con el sexo y la edad del usuario.",
+    "No es permitido realizar la validación de una FEV en salud y su RIPS soporte emitida desde un PSS/PTS a otro PSS/PTS.",
+    "El código de CUPS se puede validar con el diagnóstico principal.",
+    "No es permitido realizar la validación de una FEV en salud y su RIPS soporte emitida desde un PSS/PTS a otro PSS/PTS.",
+    "El código de CIE no puede ser de factores que influyen en el estado de salud y contacto con los servicios sanitarios (CIE10: Z00-Z99 o su equivalente en la CIE vigente).",
+    "El código de CUPS se puede validar con el diagnóstico principal.",
+    "El código de CIE no puede ser de factores que influyen en el estado de salud y contacto con los servicios sanitarios (CIE10: Z00-Z99 o su equivalente en la CIE vigente).",
+    "La finalidad informada se puede validar con el sexo y la edad del usuario.",
+    "La finalidad informada se puede validar con el sexo y la edad del usuario.",
+    "La finalidad informada se puede validar con el sexo y la edad del usuario.",
+    "No es permitido realizar la validación de una FEV en salud y su RIPS soporte emitida desde un PSS/PTS a otro PSS/PTS.",
+    "El código de CUPS se puede validar con el diagnóstico principal.",
+    "El código de CUPS se puede validar con el diagnóstico principal.",
+    "El código de CIE no puede ser de factores que influyen en el estado de salud y contacto con los servicios sanitarios (CIE10: Z00-Z99 o su equivalente en la CIE vigente).",
+    "El código de CIE no puede ser de factores que influyen en el estado de salud y contacto con los servicios sanitarios (CIE10: Z00-Z99 o su equivalente en la CIE vigente)."
+  ],
+  "observaciones_ejemplo": [
+    "Verificar tabla de referencia Dato (993504)",
+    "El CIE10 [Z749] no es válido.",
+    "No es permitido realizar la validación de una FEV en salud y su RIPS soporte emitida desde un PSS/PTS a otro PSS/PTS. NIT Prestador: 805027337 - NIT Pagador: 890303093",
+    "Verificar tabla de referencia Dato (993510)",
+    "El CIE10 [Z279] no es válido.",
+    "Finalidad 14 - sexo del usuario M",
+    "No es permitido realizar la validación de una FEV en salud y su RIPS soporte emitida desde un PSS/PTS a otro PSS/PTS. NIT Prestador: 805027337 - NIT Pagador: 890303093",
+    "Verificar tabla de referencia Dato (993510)",
+    "No es permitido realizar la validación de una FEV en salud y su RIPS soporte emitida desde un PSS/PTS a otro PSS/PTS. NIT Prestador: 805027337 - NIT Pagador: 890303093",
+    "El CIE10 [Z279] no es válido.",
+    "Verificar tabla de referencia Dato (993504)",
+    "El CIE10 [Z279] no es válido.",
+    "Finalidad 14 - Edad del usuario 1",
+    "Finalidad 14 - sexo del usuario M",
+    "Finalidad 14 - sexo del usuario M",
+    "No es permitido realizar la validación de una FEV en salud y su RIPS soporte emitida desde un PSS/PTS a otro PSS/PTS. NIT Prestador: 805027337 - NIT Pagador: 890303093",
+    "Verificar tabla de referencia Dato (993130)",
+    "Verificar tabla de referencia Dato (993510)",
+    "El CIE10 [Z279] no es válido.",
+    "El CIE10 [Z279] no es válido."
+  ]
+}
