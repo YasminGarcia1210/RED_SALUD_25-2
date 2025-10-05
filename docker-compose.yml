@@ -28,7 +28,7 @@ services:
     volumes:
       - miniodata:/data
 
-    fastapi:
+  fastapi:
     image: python:3.10-slim
     container_name: rips_fastapi
     working_dir: /app
@@ -54,4 +54,8 @@ services:
     depends_on:
       - postgres
       - minio
+    restart: unless-stopped
 
+volumes:
+  pgdata:
+  miniodata:
