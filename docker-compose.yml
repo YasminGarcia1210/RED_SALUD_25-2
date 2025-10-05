@@ -45,8 +45,8 @@ services:
       - ./scripts:/app/scripts
       - ./data:/app/data
     command: >
-      sh -c "pip install fastapi uvicorn psycopg2-binary python-multipart boto3 requests minio openai &&
-             uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+      sh -c "pip install -r requirements.txt &&
+         uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
     ports:
       - "8200:8000"
     depends_on:
