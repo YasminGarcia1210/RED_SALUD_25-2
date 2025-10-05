@@ -21,7 +21,7 @@ DB_PARAMS = {
     "password": os.getenv("POSTGRES_PASSWORD"),
 }
 
-DIRECTORIO = Path("data/normativas")
+DIRECTORIO = Path("data")
 
 # === FUNCIONES ===
 
