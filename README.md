@@ -1,5 +1,9 @@
 # 💙 Ripsy - Chatbot Inteligente de Auditoría en Salud
 
+## Autores 
+### Mg Yasmin Johanna Garcia 
+### Mg Javier Ricardo Muñoz 
+
 <div align="center">
 
 ![Ripsy Logo](https://img.shields.io/badge/Ripsy-💙-blue?style=for-the-badge&logo=heart)
